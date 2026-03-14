@@ -1,3 +1,6 @@
+<%@page import="logica.Secretario"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="logica.Odontologo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +30,7 @@
 
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Registrar Odontólogo</h1>
+                            <h1 class="h3 mb-0 text-gray-800">Editar Secretario</h1>
                         </div>
                         <!-- End Of Page Heading -->
                         <div class="d-sm-flex  justify-content-center mb-4">
@@ -39,43 +42,52 @@
                                         <div>
                                             <div class="p-5">
                                                 <div class="text-center">
-                                                    <h1 class="h4 text-gray-900 mb-4">Crea un Odontólogo</h1>
+                                                    <h1 class="h4 text-gray-900 mb-4">Edita un Secretario</h1>
                                                 </div>
-                                                <form class="user">
+                                                <form class="user" action="ServletSecretario" method="POST">
+                                                    <%
+                                                        Secretario secretarioAEditar = (Secretario) request.getAttribute("secretarioEditar");
+                                                        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+                                                    %>
                                                     <div class="form-group">
-                                                        <input type="txtIdentificacion" class="form-control form-control-user" name="txtIdentificacion"
-                                                               placeholder="Identificación">
+                                                        <input type="text" class="form-control form-control-user" name="txtIdentificacionSecre"
+                                                               value="<%=secretarioAEditar.getIdentificacion()%>">
                                                     </div>
                                                     <div class="form-group row">
                                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                                            <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                                                   placeholder="Nombre">
+                                                            <input  type="text" class="form-control form-control-user" name="txtNombreSecre"
+                                                                   value="<%=secretarioAEditar.getNombre()%>">
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                                                   placeholder="Apellido">
+                                                            <input type="text" class="form-control form-control-user" name="txtApellidoSecre"
+                                                                   value="<%=secretarioAEditar.getApellido()%>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                                               placeholder="Dirección">
+                                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtDireccionSecre"
+                                                               value="<%=secretarioAEditar.getDireccion()%>">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                                               placeholder="Celular">
+                                                        <input type="number" class="form-control form-control-user" id="exampleInputEmail" name="txtCelularSecre"
+                                                               value="<%=secretarioAEditar.getCelular()%>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Fecha de nacimiento</label>
-                                                        <input type="date" class="form-control form-control-user" id="exampleInputEmail">
+                                                        <input type="date" class="form-control form-control-user" id="exampleInputEmail" name="fechaNacSecre"
+                                                               value="<%=formatoFecha.format(secretarioAEditar.getFechaNacimiento())%>">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                                               placeholder="Especialidad">
+                                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtSectorSecre"
+                                                               value="<%=secretarioAEditar.getSector()%>">
                                                     </div>
 
-                                                    <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                                        Crear Odontólogo
-                                                    </a>
+                                                  
+
+                                                    <input type="hidden" id="id" name="idSecretario" value="<%=secretarioAEditar.getIdPersona()%>">
+                                                    <input type="hidden"  name="accion" value="editar">
+
+                                                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Editar Secretario">
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

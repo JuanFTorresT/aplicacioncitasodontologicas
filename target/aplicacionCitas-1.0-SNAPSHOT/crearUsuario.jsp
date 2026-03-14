@@ -49,25 +49,123 @@
                                                 <div class="text-center">
                                                     <h1 class="h4 text-gray-900 mb-4">Crea un Usuario</h1>
                                                 </div>
+                                                <!--FORMULARIO CREAR USUARIO-->
                                                 <form action="ServletUsuario" method="POST" class="user">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control form-control-user" name="txtUsuario"
-                                                               placeholder="Usuario">
+                                                               placeholder="Usuario" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="password" class="form-control form-control-user" name="txtContrasena" 
-                                                               placeholder="Contraseña">
+                                                               placeholder="Contraseña" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <select class="form-control rounded-pill select-user" name="txtRol">
-                                                            <option selected>Selecciona el Rol</option>
+                                                        <select class="form-control rounded-pill select-user" name="txtRol" id="selectRol" required>
+                                                            <option selected value="" disabled>Selecciona el Rol</option>
                                                             <option value="Admin">Admin</option>
                                                             <option value="Odontologo">Odontologo</option>
                                                             <option value="Secretario">Secretario</option>
                                                         </select>
                                                     </div>
+                                                    <!--FIN FORMULARIO CREAR USUARIO-->
+                                                    
+                                                    <!--FORMULARIO CREAR ODONTOLOGO-->
+                                                    <div class="formularioOdonto" id="formularioOdonto" hidden="true">
+                                                        
+                                                        <div class="text-center">
+                                                            <h1 class="h4 text-gray-900 mb-4">Crea un Odontólogo</h1>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-control-user" name="txtIdentificacionOdonto"
+                                                                   placeholder="Identificación">
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                <input type="text" class="form-control form-control-user" name="txtNombreOdonto"
+                                                                       placeholder="Nombre">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control form-control-user" name="txtApellidoOdonto"
+                                                                       placeholder="Apellido">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtDireccionOdonto"
+                                                                   placeholder="Dirección">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control form-control-user" id="exampleInputEmail" name="txtCelularOdonto"
+                                                                   placeholder="Celular">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Fecha de nacimiento</label>
+                                                            <input type="date" class="form-control form-control-user" id="exampleInputEmail" name="fechaNacOdonto">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtEspecialidadOdonto"
+                                                                   placeholder="Especialidad">
+                                                        </div>
+                                                   
+                                                    
+                                                        <!-- FORMULARIO HORARIO-->
+                                                        <div class="text-center">
+                                                            <h1 class="h4 text-gray-900 mb-4">Crea un Horario</h1>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Hora Inicio</label>
+                                                            <input type="time" class="form-control form-control-user" name="horarioInicio">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Hora Fin</label>
+                                                            <input type="time" class="form-control form-control-user" name="horarioFin">
+                                                        </div>
+
+                                                        <!-- FIN FORMULARIO HORARIO-->
+                                                    </div>
+                                                    <!--FIN FORMULARIO CREAR ODONTOLOGO-->
+
+                                                    <!--FORMULARIO CREAR SECRETARIO-->
+                                                    <div class="formularioSecre" id="formularioSecre" hidden="true">
+
+                                                        <div class="text-center">
+                                                            <h1 class="h4 text-gray-900 mb-4">Crea un Secretario</h1>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="txtIdentificacion" class="form-control form-control-user" name="txtIdentificacionSecre"
+                                                                   placeholder="Identificación">
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                <input type="text" class="form-control form-control-user" id="exampleFirstName" name="txtNombreSecre"
+                                                                       placeholder="Nombre">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control form-control-user" id="exampleLastName" name="txtApellidoSecre"
+                                                                       placeholder="Apellido">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtDireccionSecre"
+                                                                   placeholder="Dirección">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control form-control-user" id="exampleInputEmail" name="txtCelularSecre"
+                                                                   placeholder="Celular">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Fecha de nacimiento</label>
+                                                            <input type="date" class="form-control form-control-user" id="exampleInputEmail" name="fechaNacSecre">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="txtIdentificacion" class="form-control form-control-user" name="txtSectorSecre" placeholder="Sector">
+                                                        </div>
+
+                                                    </div>
+                                                    <!--FIN FORMULARIO CREAR SECRETARIO-->
 
                                                     <input type="hidden"  name="accion" value="crear">
+                                                    <input type="hidden"  name="crearRol" id="crearRol" value="">
 
                                                     <input type="submit" class="btn btn-primary btn-user btn-block" value="Crear Usuario">
 
@@ -102,6 +200,7 @@
         <!<!-- Referencias javascript component -->
         <%@include file="componentes/referenciasJS.jsp" %>
         <!<!-- End of Referencias javascript component -->
-
+        
+        <script src="js/formularioUsuario.js"></script>
     </body>
 </html>

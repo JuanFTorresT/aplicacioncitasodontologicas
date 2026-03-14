@@ -30,7 +30,7 @@
                     <div class="container-fluid">
 
                         <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                        <h1 class="h3 mb-2 text-gray-800">Usuarios registrados</h1>
                         <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                             For more information about DataTables, please visit the <a target="_blank"
                                                                                        href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -60,7 +60,7 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <% 
+                                            <%
                                                 List<Usuario> listaUsuarios = (List<Usuario>) request.getAttribute("listaUsuarios");
                                                 for (Usuario usuario : listaUsuarios) {
                                             %>
@@ -73,19 +73,23 @@
                                                     <form action="ServletUsuario" method="GET">
                                                         <input type="hidden"  name="idUsuario" value="<%=usuario.getIdUsuario()%>">
                                                         <input type="hidden"  name="accion" value="editar">
-                                                        <input type="submit" value="Editar" class="btn btn-primary mr-4">
+                                                        <button type="submit" class="btn shadow-sm mr-2" style="background: none; border: none;" title="Editar">
+                                                            <i class="fas fa-edit" style="color: rgb(255, 143, 0);" ></i>
+                                                        </button>
                                                     </form>
                                                     <!-- Fin Formulario editar -->
                                                     <!-- Formulario eliminar -->
                                                     <form action="ServletUsuario" method="POST">
                                                         <input type="hidden"  name="idUsuario" value="<%=usuario.getIdUsuario()%>">
                                                         <input type="hidden"  name="accion" value="eliminar">
-                                                         <input type="submit" value="Eliminar" class="btn btn-danger mr-4">
+                                                        <button type="submit" class="btn shadow-sm mr-2" style="background: none; border: none;" title="Eliminar">
+                                                            <i class="fas fa-trash" style="color: rgb(255, 0, 0);" ></i>
+                                                        </button>
                                                     </form>
                                                     <!-- Fin Formulario eliminar -->
                                                 </td>
                                             </tr>
-                                            
+
                                             <%}%>
                                         </tbody>
                                     </table>

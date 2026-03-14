@@ -8,7 +8,7 @@ import logica.Horario;
 import logica.Turno;
 import logica.Usuario;
 
-@Generated(value="EclipseLink-2.7.10.v20211216-rNA", date="2026-03-05T20:28:40")
+@Generated(value="EclipseLink-2.7.10.v20211216-rNA", date="2026-03-07T18:50:26")
 @StaticMetamodel(Odontologo.class)
 public class Odontologo_ extends Persona_ {
 
