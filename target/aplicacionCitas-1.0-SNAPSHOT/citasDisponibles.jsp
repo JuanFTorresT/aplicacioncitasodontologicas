@@ -15,13 +15,7 @@
         <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js'></script>
         <script>
 
-            document.addEventListener('DOMContentLoaded', function () {
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth'
-                });
-                calendar.render();
-            });
+            
 
         </script>
     </head>
@@ -46,29 +40,29 @@
                     <div class="container-fluid">
 
                         <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <div class="d-sm-flex align-items-center justify-content-between ">
                             <h1 class="h3 mb-0 text-gray-800">Citas Disponibles</h1>
                         </div>
                         <!-- End Of Page Heading -->
-                        <div class="d-sm-flex  justify-content-center mb-4">
-                            <!-- Formulario creacion -->
-                            <div class="card o-hidden border-0 shadow-lg my-5 w-50">
-                                <div class="card-body">
-                                    <!-- Nested Row within Card Body -->
+
+                        <!-- Formulario creacion -->
+                        <div class="card o-hidden border-0 shadow-lg my-5 w-100">
+                            <div class="card-body">
+                                <!-- Nested Row within Card Body -->
+                                <div>
                                     <div>
-                                        <div>
-                                            <div class="p-5">
+                                        <div class="p-1">
 
 
-                                                <div id='calendar'></div>
+                                            <div id='calendar'></div>
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Of Formulario creacion -->
                         </div>
+                        <!-- End Of Formulario creacion -->
+
 
                     </div>
                     <!-- End Of Begin Page Content -->
@@ -92,6 +86,6 @@
         <%@include file="componentes/referenciasJS.jsp" %>
         <!<!-- End of Referencias javascript component -->
 
-        <script src="js/formularioUsuario.js"></script>
+        <script src="js/eventosCita.js"></script>
     </body>
 </html>
