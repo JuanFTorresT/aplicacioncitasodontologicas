@@ -57,7 +57,7 @@ public class ServletPaciente extends HttpServlet {
             throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("idPaciente"));
-        
+
         Paciente nuevoPaciente = controladorPaciente.obtenerPaciente(id);
 
         request.setAttribute("pacienteEditar", nuevoPaciente);
@@ -122,9 +122,9 @@ public class ServletPaciente extends HttpServlet {
                 Logger.getLogger(ServletUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
             String parentescoResponsable = request.getParameter("txtParentescoResponsable");
-            
+
             System.out.println("Identificacion responsable = " + identificacionResponsable);
-            
+
             Responsable responsableNuevo = new Responsable();
             responsableNuevo.setIdentificacion(identificacionResponsable);
             responsableNuevo.setNombre(nombreResponsable);
@@ -148,23 +148,32 @@ public class ServletPaciente extends HttpServlet {
             }
 
         }
-        /*
-        if ("eliminar".equals(accion)) {
-            int id = Integer.parseInt(request.getParameter("idUsuario"));
-            try {
-                controladorUsuario.eliminarUsuario(id);
-                System.out.println("Usuario eliminado correctamente");
-                response.sendRedirect("CargarTablaUsuarios");
 
+        if ("eliminar".equals(accion)) {
+            int id = Integer.parseInt(request.getParameter("idPaciente"));
+            try {
+
+                Paciente pacienteAEliminar = controladorPaciente.obtenerPaciente(id);
+
+                if (pacienteAEliminar.getResponsable() != null) {
+                    controladorResponsable.eliminarResponsable(pacienteAEliminar.getResponsable().getIdPersona());
+                    controladorPaciente.eliminarPaciente(id);
+                    System.out.println("paciente eliminado correctamente");
+                    response.sendRedirect("CargarTablaPacientes");
+
+                } else {
+                    controladorPaciente.eliminarPaciente(id);
+                    System.out.println("paciente eliminado correctamente");
+                    response.sendRedirect("CargarTablaPacientes");
+                }
             } catch (Exception e) {
-                System.out.println("Error al eliminar el usuario.");
+                System.out.println("Error al eliminar el paciente.");
             }
         }
-         */
 
         if ("editar".equals(accion)) {
             int id = Integer.parseInt(request.getParameter("idPaciente"));
-            
+
             //---------DATOS PACIENTE
             String identificacionPaciente = request.getParameter("txtIdentificacionPaciente");
             String nombrePaciente = request.getParameter("txtNombrePaciente");
@@ -185,13 +194,12 @@ public class ServletPaciente extends HttpServlet {
             String tipoSangre = request.getParameter("tipoSangre");
             boolean tieneSeguro = request.getParameter("tieneSeguro") != null;
             System.out.println(request.getParameter("tieneSeguro"));
-            
+
             //---------FIN DATOS PACIENTE
-            
             Paciente pacienteAEditar = controladorPaciente.obtenerPaciente(id);
-            
+
             Responsable responsablePaciente = pacienteAEditar.getResponsable();
-            
+
             pacienteAEditar.setIdentificacion(identificacionPaciente);
             pacienteAEditar.setNombre(nombrePaciente);
             pacienteAEditar.setApellido(apellidoPaciente);
@@ -201,11 +209,9 @@ public class ServletPaciente extends HttpServlet {
             pacienteAEditar.setTipoSangre(tipoSangre);
             pacienteAEditar.setTieneSeguro(tieneSeguro);
             pacienteAEditar.setResponsable(responsablePaciente);
-            
-            
+
             System.out.println("Fecha nacimiento = " + fechaNacPaciente);
-            
-            
+
             try {
                 controladorPaciente.editarPaciente(pacienteAEditar);
                 System.out.println("Paciente editado correctamente");

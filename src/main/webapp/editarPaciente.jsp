@@ -109,6 +109,10 @@
 
 
                                                     </div>
+                                                            
+                                                            <!-- PUEDE SER NECESARIO EDDITAR TAMBIEN EL RESPONSABLE PORQUE CUANDO SE QUIERE EDITAR EL PACIENTE Y CAMBIAR LA FECHA DE
+                                                            NACIMIENTO PORQUE QUEDÓ MAL Y LA PERSONA ES MENOR DE EDAD NO HAY OTRA FORMA DE CREAR EL RESPONSABLE de igual forma, si
+                                                            se creo un paciente menor de edad y se quiere modificar a mayor de edad queda creado el responsable, se tendría que eliminar el paciente y crear otro-->
                                                        
                                                             <%--
                                                     <!--FIN FORMULARIO CREAR PACIENTE-->
