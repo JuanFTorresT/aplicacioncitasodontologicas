@@ -50,91 +50,105 @@
                                                     <h1 class="h4 text-gray-900 mb-4">Crea un Paciente</h1>
                                                 </div>
                                                 <!--FORMULARIO CREAR PACIENTE-->
-                                                <form action="ServletUsuario" method="POST" class="user">
-                                                   
-                                                    
+                                                <form action="ServletPaciente" method="POST" class="user">
+
+
                                                     <!--FORMULARIO CREAR PACIENTE-->
-                                                    <div class="formularioOdonto" id="formularioOdonto">
+                                                    <div class="formularioPaciente" id="formularioPaciente">
 
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" name="txtIdentificacionOdonto"
+                                                            <input type="text" class="form-control form-control-user" name="txtIdentificacionPaciente"
                                                                    placeholder="Identificación">
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                <input type="text" class="form-control form-control-user" name="txtNombreOdonto"
+                                                                <input type="text" class="form-control form-control-user" name="txtNombrePaciente"
                                                                        placeholder="Nombre">
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input type="text" class="form-control form-control-user" name="txtApellidoOdonto"
+                                                                <input type="text" class="form-control form-control-user" name="txtApellidoPaciente"
                                                                        placeholder="Apellido">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtDireccionOdonto"
+                                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtDireccionPaciente"
                                                                    placeholder="Dirección">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="number" class="form-control form-control-user" id="exampleInputEmail" name="txtCelularOdonto"
+                                                            <input type="number" class="form-control form-control-user" id="exampleInputEmail" name="txtCelularPaciente"
                                                                    placeholder="Celular">
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Fecha de nacimiento</label>
-                                                            <input type="date" class="form-control form-control-user" id="exampleInputEmail" name="fechaNacOdonto">
+                                                            <input type="date" class="form-control form-control-user" id="fechaNacPaciente" name="fechaNacPaciente">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtEspecialidadOdonto"
-                                                                   placeholder="Especialidad">
+                                                            <select class="form-control rounded-pill select-user" name="tipoSangre" id="tipoSangre" required>
+                                                                <option value="">Seleccione su tipo de sangre</option>
+                                                                <option value="A+">A+</option>
+                                                                <option value="A-">A-</option>
+                                                                <option value="B+">B+</option>
+                                                                <option value="B-">B-</option>
+                                                                <option value="AB+">AB+</option>
+                                                                <option value="AB-">AB-</option>
+                                                                <option value="O+">O+</option>
+                                                                <option value="O-">O-</option>
+                                                            </select>
                                                         </div>
-                                                   
-                                                    
+                                                        <div class="form-group">
+                                                            <input type="checkbox" id="tieneSeguro" name="tieneSeguro">
+                                                            <label for="tieneSeguro">¿Tiene seguro?</label>
+                                                        </div>
+
+
 
                                                     </div>
                                                     <!--FIN FORMULARIO CREAR PACIENTE-->
 
                                                     <!--FORMULARIO CREAR RESPONSABLE-->
-                                                    <div class="formularioSecre" id="formularioSecre">
+                                                    <div class="formularioResponsable" id="formularioResponsable" hidden>
 
                                                         <div class="text-center">
-                                                            <h1 class="h4 text-gray-900 mb-4">Crea un Secretario</h1>
+                                                            <h1 class="h4 text-gray-900 mb-4">Crea un Responsable</h1>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="txtIdentificacion" class="form-control form-control-user" name="txtIdentificacionSecre"
+                                                            <input type="text" class="form-control form-control-user" name="txtIdentificacionResponsable"
                                                                    placeholder="Identificación">
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                <input type="text" class="form-control form-control-user" id="exampleFirstName" name="txtNombreSecre"
+                                                                <input type="text" class="form-control form-control-user" id="exampleFirstName" name="txtNombreResponsable"
                                                                        placeholder="Nombre">
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input type="text" class="form-control form-control-user" id="exampleLastName" name="txtApellidoSecre"
+                                                                <input type="text" class="form-control form-control-user" id="exampleLastName" name="txtApellidoResponsable"
                                                                        placeholder="Apellido">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtDireccionSecre"
+                                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="txtDireccionResponsable"
                                                                    placeholder="Dirección">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="number" class="form-control form-control-user" id="exampleInputEmail" name="txtCelularSecre"
+                                                            <input type="number" class="form-control form-control-user" id="exampleInputEmail" name="txtCelularResponsable"
                                                                    placeholder="Celular">
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Fecha de nacimiento</label>
-                                                            <input type="date" class="form-control form-control-user" id="exampleInputEmail" name="fechaNacSecre">
+                                                            <input type="date" class="form-control form-control-user" id="exampleInputEmail" name="fechaNacResponsable">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="txtIdentificacion" class="form-control form-control-user" name="txtSectorSecre" placeholder="Sector">
+                                                            <input type="text" class="form-control form-control-user" name="txtParentescoResponsable" placeholder="Parentesco">
                                                         </div>
 
                                                     </div>
                                                     <!--FIN FORMULARIO CREAR SECRETARIO-->
 
                                                     <input type="hidden"  name="accion" value="crear">
-                                                    <input type="hidden"  name="crearRol" id="crearRol" value="">
 
-                                                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Crear Usuario">
+                                                    <!--<input type="hidden"  name="crearRol" id="crearRol" value="">-->
+
+                                                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Crear Paciente">
 
                                                 </form>
 
@@ -167,7 +181,7 @@
         <!<!-- Referencias javascript component -->
         <%@include file="componentes/referenciasJS.jsp" %>
         <!<!-- End of Referencias javascript component -->
-        
-        <script src="js/formularioUsuario.js"></script>
+
+        <script src="js/formularioPaciente.js"></script>
     </body>
 </html>

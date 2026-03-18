@@ -94,6 +94,21 @@
                                                 <td><%=paciente.isTieneSeguro()%></td>
                                                 <td> De <%=paciente.getTipoSangre()%> </td>
                                                 <td class="d-flex ">
+                                                    <%
+                                                        if (paciente.getResponsable() != null) {
+                                                    %> 
+                                                    <!-- Formulario ver Responsable -->
+                                                    <form action="ServletResponsable" method="GET">
+                                                        <input type="hidden"  name="idResponsable" value="<%=paciente.getResponsable().getIdPersona()%>">
+                                                        <!--<input type="hidden"  name="accion" value="editar">-->
+                                                        <!-- <input type="submit" value="Editar" class="btn btn-primary mr-4"> -->
+                                                        <button type="submit" class="btn shadow-sm mr-2" style="background: none; border: none;" title="Ver Responsable">
+                                                            <i class="fas fa-eye" style="color: #4e73df;" ></i>
+                                                        </button>
+                                                    </form>
+                                                    <!-- Fin Formulario ver Responsable -->
+                                                    <% }%>
+
                                                     <!-- Formulario editar -->
                                                     <form action="ServletPaciente" method="GET">
                                                         <input type="hidden"  name="idPaciente" value="<%=paciente.getIdPersona()%>">
