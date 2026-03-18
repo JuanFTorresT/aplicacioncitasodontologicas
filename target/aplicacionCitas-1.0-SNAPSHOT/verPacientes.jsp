@@ -112,8 +112,7 @@
                                                     <!-- Formulario editar -->
                                                     <form action="ServletPaciente" method="GET">
                                                         <input type="hidden"  name="idPaciente" value="<%=paciente.getIdPersona()%>">
-                                                        <!--<input type="hidden"  name="accion" value="editar">-->
-                                                        <!-- <input type="submit" value="Editar" class="btn btn-primary mr-4"> -->
+                                                        <input type="hidden"  name="accion" value="editar">
                                                         <button type="submit" class="btn shadow-sm mr-2" style="background: none; border: none;" title="Editar">
                                                             <i class="fas fa-edit" style="color: rgb(255, 143, 0);" ></i>
                                                         </button>

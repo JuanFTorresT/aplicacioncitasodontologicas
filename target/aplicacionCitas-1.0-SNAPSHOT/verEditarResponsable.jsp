@@ -50,7 +50,7 @@
                                             <div class="p-5">
 
                                                 <!--FORMULARIO VER / EDITAR PACIENTE-->
-                                                <form action="ServletPaciente" method="POST" class="user">
+                                                <form action="ServletResponsable" method="POST" class="user">
 
                                                     <%
                                                         Responsable responsableAEditar = (Responsable) request.getAttribute("ResponsableEditar");
@@ -104,7 +104,8 @@
                                                     </div>
                                                     <!--FIN FORMULARIO CREAR SECRETARIO-->
 
-                                                    <input type="hidden"  name="accion" value="crear">
+                                                    <input type="hidden"  name="accion" value="editar">
+                                                    <input type="hidden"  name="idResponsable" value="<%=responsableAEditar.getIdPersona()%>">
 
                                                     <!--<input type="hidden"  name="crearRol" id="crearRol" value="">-->
 

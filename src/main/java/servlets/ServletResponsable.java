@@ -160,21 +160,45 @@ public class ServletResponsable extends HttpServlet {
                 System.out.println("Error al eliminar el usuario.");
             }
         }
+         */
 
         if ("editar".equals(accion)) {
-            int id = Integer.parseInt(request.getParameter("idUsuario"));
-            nuevoUsuario.setIdUsuario(id);
-            nuevoUsuario.setContrasenia(controladorUsuario.obtenerUsuario(id).getContrasenia());
+            int id = Integer.parseInt(request.getParameter("idResponsable"));
+            
+            Responsable responsableAEditar = controladorResponsable.obtenerResponsable(id);
+            
+            String identificacionResponsable = request.getParameter("txtIdentificacionResponsable");
+            String nombreResponsable = request.getParameter("txtNombreResponsable");
+            String apellidoResponsable = request.getParameter("txtApellidoResponsable");
+            String direccionResponsable = request.getParameter("txtDireccionResponsable");
+            String celularResponsable = request.getParameter("txtCelularResponsable");
+            Date fechaNacResponsable = null;
             try {
-                controladorUsuario.editarUsuario(nuevoUsuario);
-                System.out.println("Usuario eliminado correctamente");
-                response.sendRedirect("CargarTablaUsuarios");
+                String fechaNacSecreTexto = request.getParameter("fechaNacResponsable");
+                fechaNacResponsable = formatter.parse(fechaNacSecreTexto);
+            } catch (ParseException ex) {
+                Logger.getLogger(ServletUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String parentescoResponsable = request.getParameter("txtParentescoResponsable");
+            
+            responsableAEditar.setIdentificacion(identificacionResponsable);
+            responsableAEditar.setNombre(nombreResponsable);
+            responsableAEditar.setApellido(apellidoResponsable);
+            responsableAEditar.setDireccion(direccionResponsable);
+            responsableAEditar.setCelular(celularResponsable);
+            responsableAEditar.setFechaNacimiento(fechaNacResponsable);
+            responsableAEditar.setParentesco(parentescoResponsable);
+            
+            
+            try {
+                controladorResponsable.editarResponsable(responsableAEditar);
+                System.out.println("Responsable editado correctamente");
+                response.sendRedirect("CargarTablaPacientes");
 
             } catch (Exception e) {
-                System.out.println("Error al eliminar el usuario.");
+                System.out.println("Error al editar el responsable.");
             }
         }
-         */
     }
 
     @Override

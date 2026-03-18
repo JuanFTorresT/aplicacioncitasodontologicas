@@ -55,14 +55,14 @@ public class ServletPaciente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("Se entro en el get del servelt usuario");
-        int id = Integer.parseInt(request.getParameter("idUsuario"));
-        /*
-        Usuario nuevoUsuario = controladorUsuario.obtenerUsuario(id);
 
-        request.setAttribute("usuarioEditar", nuevoUsuario);
+        int id = Integer.parseInt(request.getParameter("idPaciente"));
+        
+        Paciente nuevoPaciente = controladorPaciente.obtenerPaciente(id);
 
-        request.getRequestDispatcher("editarUsuario.jsp").forward(request, response);*/
+        request.setAttribute("pacienteEditar", nuevoPaciente);
+
+        request.getRequestDispatcher("editarPaciente.jsp").forward(request, response);
 
     }
 
@@ -160,21 +160,61 @@ public class ServletPaciente extends HttpServlet {
                 System.out.println("Error al eliminar el usuario.");
             }
         }
+         */
 
         if ("editar".equals(accion)) {
-            int id = Integer.parseInt(request.getParameter("idUsuario"));
-            nuevoUsuario.setIdUsuario(id);
-            nuevoUsuario.setContrasenia(controladorUsuario.obtenerUsuario(id).getContrasenia());
+            int id = Integer.parseInt(request.getParameter("idPaciente"));
+            
+            //---------DATOS PACIENTE
+            String identificacionPaciente = request.getParameter("txtIdentificacionPaciente");
+            String nombrePaciente = request.getParameter("txtNombrePaciente");
+            String apellidoPaciente = request.getParameter("txtApellidoPaciente");
+            String direccionPaciente = request.getParameter("txtDireccionPaciente");
+            String celularPaciente = request.getParameter("txtCelularPaciente");
+
+            Date fechaNacPaciente = null;
             try {
-                controladorUsuario.editarUsuario(nuevoUsuario);
-                System.out.println("Usuario eliminado correctamente");
-                response.sendRedirect("CargarTablaUsuarios");
+                String fechaTexto = request.getParameter("fechaNacPaciente");
+
+                System.out.println("Fecha recibida: " + fechaTexto);
+                fechaNacPaciente = formatter.parse(fechaTexto);
+            } catch (ParseException ex) {
+                Logger.getLogger(ServletUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println(fechaNacPaciente.getDate());
+            String tipoSangre = request.getParameter("tipoSangre");
+            boolean tieneSeguro = request.getParameter("tieneSeguro") != null;
+            System.out.println(request.getParameter("tieneSeguro"));
+            
+            //---------FIN DATOS PACIENTE
+            
+            Paciente pacienteAEditar = controladorPaciente.obtenerPaciente(id);
+            
+            Responsable responsablePaciente = pacienteAEditar.getResponsable();
+            
+            pacienteAEditar.setIdentificacion(identificacionPaciente);
+            pacienteAEditar.setNombre(nombrePaciente);
+            pacienteAEditar.setApellido(apellidoPaciente);
+            pacienteAEditar.setDireccion(direccionPaciente);
+            pacienteAEditar.setCelular(celularPaciente);
+            pacienteAEditar.setFechaNacimiento(fechaNacPaciente);
+            pacienteAEditar.setTipoSangre(tipoSangre);
+            pacienteAEditar.setTieneSeguro(tieneSeguro);
+            pacienteAEditar.setResponsable(responsablePaciente);
+            
+            
+            System.out.println("Fecha nacimiento = " + fechaNacPaciente);
+            
+            
+            try {
+                controladorPaciente.editarPaciente(pacienteAEditar);
+                System.out.println("Paciente editado correctamente");
+                response.sendRedirect("CargarTablaPacientes");
 
             } catch (Exception e) {
-                System.out.println("Error al eliminar el usuario.");
+                System.out.println("Error al editar el paciente.");
             }
         }
-         */
     }
 
     @Override
